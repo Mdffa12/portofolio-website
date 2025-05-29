@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Daffa Gusviandra | Web3 Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-purple: #b300ff;
+            --dark-bg: #0a0a15;
+            --glass-bg: rgba(15, 15, 35, 0.5);
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .font-futuristic {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple));
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        #stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .light-mode {
+            --dark-bg: #f0f0f5;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            color: #333;
+        }
+        
+        .light-mode .glass-card {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .light-mode .neon-text {
+            text-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+            color: #333;
+        }
+        
+        .light-mode .star {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body class="dark:bg-[#0a0a15] transition-colors duration-500">
+    <!-- Stars Background -->
+    <div id="stars-container"></div>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 p-2 rounded-full glass-card theme-toggle">
+        <i class="fas fa-moon text-xl text-white dark:text-yellow-300"></i>
+    </button>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="container mx-auto px-6 py-20 z-10">
+            <div class="glass-card rounded-2xl p-8 md:p-12 max-w-3xl mx-auto neon-border">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text font-futuristic">M Daffa Gusviandra</h1>
+                <p class="text-xl md:text-2xl mb-8 text-cyan-300 font-medium">Web3 Enthusiast | Community Builder | Future-Driven</p>
+                <div class="flex space-x-4">
+                    <a href="#profile" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full font-medium hover:opacity-90 transition">Explore</a>
+                    <a href="#contact" class="px-6 py-3 border border-cyan-400 rounded-full font-medium hover:bg-cyan-400 hover:bg-opacity-10 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Circles -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-600 opacity-20 blur-xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-cyan-600 opacity-20 blur-xl animate-pulse delay-500"></div>
+    </section>
+    
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center neon-text font-futuristic">Profil</h2>
+            <div class="glass-card rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-40 h-40 rounded-full border-4 border-cyan-400 overflow-hidden neon-border">
+                           <img src="daffafoto.jpg" alt="Muhamad Daffa Gusviandra" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-lg md:text-xl leading-relaxed">
+                            I'm Muhamad Daffa, a highly motivated individual who upholds the values of honesty and is always ready to contribute to a team. As someone who faces the challenges of disability, I never see it as a barrier to growth and learning. I believe that every opportunity is a chance to give my best, both individually and collaboratively. With strong determination, I am ready to make a positive impact on the team and achieve shared goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="py-20 px-6 bg-gradient-to-b from-transparent to-[rgba(11,10,25,0.7)]">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center neon-text font-futuristic">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Digital Marketing</div>
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Copywriting</div>
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Business Development</div>
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Cryptocurrency Trading</div>
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Community Management</div>
+                <div class="skill-pill glass-card rounded-full py-3 px-6 text-center">Intermediate English (B1)</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Web3 Portfolio Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center neon-text font-futuristic">Web3 Portfolio</h2>
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-12 pl-8">
+                    <!-- Item 1 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-cyan-400">Meme Coin Campaign Lead – Tung Tung Sahur</h3>
+                                <span class="bg-purple-600 bg-opacity-30 text-purple-300 px-3 py-1 rounded-full text-sm">April 2025</span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Promoted the coin from $41K to $200K+</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Viral TikTok hook: "Most viral brainrot video!! 100M+ views!"</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Used meme culture + trends to drive growth</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-cyan-400">Ambassador – Nexity Network (NXT)</h3>
+                                <span class="bg-purple-600 bg-opacity-30 text-purple-300 px-3 py-1 rounded-full text-sm">March 2025</span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Educated users via Twitter/X</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Helped onboard new users and grow awareness</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Focused on storytelling around RWA adoption</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative timeline-item pl-8">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-2xl font-bold text-cyan-400">Community Manager – Chaspa</h3>
+                                <span class="bg-purple-600 bg-opacity-30 text-purple-300 px-3 py-1 rounded-full text-sm">February 2025</span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Led Telegram & Discord for GameFi/crypto education</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Ran NFT campaigns, meme contests, and partnered events</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">✓</span>
+                                    <span>Collected feedback and improved UX</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Content Section -->
+<section id="contact" class="py-20 px-6 bg-gradient-to-b from-transparent to-[rgba(11,10,25,0.7)]">
+  <div class="container mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 neon-text font-futuristic">Contact</h2>
+    
+    <div class="space-y-6">
+      <div class="glass-card rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-cyan-400 mb-2"><i class="fas fa-envelope mr-2"></i> Email</h3>
+        <p><a href="mailto:Mhmddaffa1003@gmail.com" class="hover:underline text-gray-300">Mhmddaffa1003@gmail.com</a></p>
+      </div>
+      
+      <div class="glass-card rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-cyan-400 mb-2"><i class="fab fa-linkedin mr-2"></i> LinkedIn</h3>
+        <p><a href="https://www.linkedin.com/in/muhamad-daffa-gusviandra-a72ab725b/" target="_blank" class="hover:underline text-gray-300">linkedin.com/in/muhamad-daffa-gusviandra</a></p>
+      </div>
+      
+      <div class="glass-card rounded-xl p-6">
+        <h3 class="text-xl font-semibold text-cyan-400 mb-2"><i class="fab fa-whatsapp mr-2"></i> WhatsApp</h3>
+        <p><a href="https://wa.me/628999220712" target="_blank" class="hover:underline text-gray-300">0899-9220-712</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</html>
